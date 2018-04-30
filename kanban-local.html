@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My notes</title>
+    <script src="https://get.mavo.io/mavo.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://get.mavo.io/mavo.css">
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+
+
+        .card-columns {
+            min-height: 100px;
+        }
+        @media (min-width: 1200px) {
+            .container{
+                max-width: 1500px;
+            }
+        }
+
+        body {
+            background: #6fffe0;
+        }
+
+        .postit .card-text {
+            margin: 0;
+            padding: 0px 0px 10px 10px;
+            white-space: pre-wrap;
+        }
+
+        .postit .card-body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .postit .card-title {
+            min-height: 1.25em;
+            line-height: 1.25;
+            background: #fdfb7d;
+            font-weight: bold;
+            padding: 10px 0px 2px 10px;
+        }
+
+        .postit {
+            line-height: 1;
+            font:19px 'Gloria Hallelujah', cursive;
+            background: #ffff88;
+            border:0;
+            border-radius:3px;
+            box-shadow:0 4px 6px rgba(0,0,0,0.1);
+            transition:box-shadow 0.5s ease;
+        }
+
+        .jumbotron {
+            background: #ffff88;
+            padding: 0.1em 0.5em;
+        }
+
+        .jumbotron h1 {
+            background: #fdfb7d;
+            font:2em 'Gloria Hallelujah', cursive;
+        }
+
+        .jumbotron p {
+            font:20px 'Gloria Hallelujah', cursive;
+        }
+
+        .todo {
+            background: #ffff88;
+        }
+
+        .inProgress {
+            background: #49b4ff;
+        }
+
+        .done {
+            background: #8cff00;
+        }
+
+        h1 {
+            font:2.5em 'Gloria Hallelujah', bold;
+        }
+
+    </style>
+</head>
+<body>
+<div mv-app="mavokanban" mv-storage="local">
+    <div class="mv-bar mv-ui">
+        <button class="mv-add-todo">New task</button>
+        <button class="mv-add-boards">New board</button>
+    </div>
+    <div class="container-fluid">
+        <div class="row" property="boards" mv-multiple>
+            <h1 class="col-lg-12" property="title"></h1>
+            <div class="col-lg-4 todo">
+                <h1 class="text-center">To do:</h1>
+                <div class="container">
+                    <div class="card-columns">
+                        <div class="card postit" mv-multiple property="todo" mv-accepts="inProgress done">
+                            <div class="card-body">
+                                <h4 class="card-title" property="title"></h4>
+                                <p class="card-text" property="text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 inProgress">
+                <h1 class="text-center">In progress:</h1>
+                <div class="container">
+                    <div class="card-columns">
+                        <div class="card postit" mv-multiple property="inProgress" mv-accepts="done todo">
+                            <div class="card-body">
+                                <h4 class="card-title" property="title"></h4>
+                                <p class="card-text" property="text"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="mv-add-inProgress invisible">New task</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4 done">
+                <h1 class="text-center">Done:</h1>
+                <div class="container">
+                    <div class="card-columns">
+                        <div class="card postit" mv-multiple property="done" mv-accepts="inProgress todo">
+                            <div class="card-body">
+                                <h4 class="card-title" property="title"></h4>
+                                <p class="card-text" property="text"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="mv-add-done invisible">New task</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
