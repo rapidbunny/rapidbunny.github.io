@@ -4,9 +4,22 @@
 .card-columns {
     min-height: 100px;
 }
+
+@media (min-width: 768px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
 @media (min-width: 1200px) {
-    .container{
-        max-width: 1500px;
+    .card-columns {
+        column-count: 4;
     }
 }
 
