@@ -1,0 +1,89 @@
+@import url(//fonts.googleapis.com/css?family=Gloria+Hallelujah);
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
+
+.card-columns {
+    min-height: 100px;
+}
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1500px;
+    }
+}
+
+body {
+    background: #6fffe0;
+}
+
+.sticky-note .card-text {
+    margin: 0;
+    padding: 0px 0px 10px 10px;
+    white-space: pre-wrap;
+}
+
+.sticky-note .card-body {
+    margin: 0;
+    padding: 0;
+}
+
+.sticky-note .card-title {
+
+    border-radius:3px;
+    min-height: 1.25em;
+    line-height: 1.25;
+    background: #fdfb7d;
+    margin: 0;
+    padding: 0px 0px 0px 5px;
+    font:20px 'Gloria Hallelujah', bold;
+}
+
+.sticky-note {
+    line-height: 1;
+    font:19px 'Gloria Hallelujah', cursive;
+    background: #ffff88;
+    border:0;
+    border-radius:3px;
+    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+    transition:box-shadow 0.5s ease;
+}
+
+.jumbotron {
+    background: #ffff88;
+    padding: 0.1em 0.5em;
+}
+
+.jumbotron h1 {
+    background: #fdfb7d;
+    font:2em 'Gloria Hallelujah', cursive;
+}
+
+.jumbotron p {
+    font:20px 'Gloria Hallelujah', cursive;
+}
+
+.todo {
+    background: #ffff88;
+}
+
+.inProgress {
+    background: #49b4ff;
+}
+
+.done {
+    background: #8cff00;
+}
+
+.btn-transparent, .btn-transparent:hover, .btn-transparent:focus {
+    background-color: transparent;
+    border: 0;
+    color: black;
+    font:19px 'Gloria Hallelujah', cursive;
+}
+
+.big-title {
+    font:2.5em 'Gloria Hallelujah', bold;
+}
+
+[mv-app]:not([mv-mode=edit]) .editmode {
+    display:none;
+}
+
