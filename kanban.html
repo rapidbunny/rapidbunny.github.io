@@ -80,7 +80,7 @@
             background: #8cff00;
         }
 
-        h1 {
+        .big {
             font:2.5em 'Gloria Hallelujah', bold;
         }
 
@@ -94,9 +94,9 @@
     </div>
     <div class="container-fluid">
         <div class="row" property="boards" mv-multiple>
-            <h1 class="col-lg-12" property="title"></h1>
+            <h1 class="big col-lg-12" property="title"></h1>
             <div class="col-lg-4 todo">
-                <h1 class="text-center">To do:</h1>
+                <h1 class="big text-center">To do:</h1>
                 <div class="container">
                     <div class="card-columns">
                         <div class="card postit" mv-multiple property="todo" mv-accepts="inProgress done">
@@ -110,7 +110,7 @@
             </div>
 
             <div class="col-lg-4 inProgress">
-                <h1 class="text-center">In progress:</h1>
+                <h1 class="big text-center">In progress:</h1>
                 <div class="container">
                     <div class="card-columns">
                         <div class="card postit" mv-multiple property="inProgress" mv-accepts="done todo">
@@ -125,7 +125,7 @@
             </div>
 
             <div class="col-lg-4 done">
-                <h1 class="text-center">Done:</h1>
+                <h1 class="big text-center">Done:</h1>
                 <div class="container">
                     <div class="card-columns">
                         <div class="card postit" mv-multiple property="done" mv-accepts="inProgress todo">
