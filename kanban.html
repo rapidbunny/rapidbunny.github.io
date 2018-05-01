@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://get.mavo.io/mavo.css">
     <style>
         @import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
-
+        @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 
         .card-columns {
             min-height: 100px;
@@ -25,26 +25,29 @@
             background: #6fffe0;
         }
 
-        .postit .card-text {
+        .sticky-note .card-text {
             margin: 0;
             padding: 0px 0px 10px 10px;
             white-space: pre-wrap;
         }
 
-        .postit .card-body {
+        .sticky-note .card-body {
             margin: 0;
             padding: 0;
         }
 
-        .postit .card-title {
+        .sticky-note .card-title {
+
+            border-radius:3px;
             min-height: 1.25em;
             line-height: 1.25;
             background: #fdfb7d;
-            font-weight: bold;
-            padding: 10px 0px 2px 10px;
+            margin: 0;
+            padding: 0px 0px 0px 5px;
+            font:20px 'Gloria Hallelujah', bold;
         }
 
-        .postit {
+        .sticky-note {
             line-height: 1;
             font:19px 'Gloria Hallelujah', cursive;
             background: #ffff88;
@@ -80,26 +83,37 @@
             background: #8cff00;
         }
 
-        .big {
+        .btn-transparent, .btn-transparent:hover, .btn-transparent:focus {
+            background-color: transparent;
+            border: 0;
+            color: black;
+            font:19px 'Gloria Hallelujah', cursive;
+        }
+
+        .big-title {
             font:2.5em 'Gloria Hallelujah', bold;
+        }
+
+        [mv-app]:not([mv-mode=edit]) .editmode {
+            display:none;
         }
 
     </style>
 </head>
 <body>
 <div mv-app="mavokanban" mv-storage="https://github.com/rapidbunny/mavokanban">
-    <div class="mv-bar mv-ui">
-        <button class="mv-add-todo">New task</button>
-        <button class="mv-add-boards">New board</button>
-    </div>
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12"><button type="button" class="btn-transparent editmode float-right btn btn-link mv-add-boards">+ New board</button></div>
+        </div>
         <div class="row" property="boards" mv-multiple>
-            <h1 class="big col-lg-12" property="title"></h1>
+            <div class="col-lg-12"><h1 class="big-title" property="title"></div>
             <div class="col-lg-4 todo">
-                <h1 class="big text-center">To do:</h1>
+                <h1 class="big-title text-center">To do: </h1>
                 <div class="container">
                     <div class="card-columns">
-                        <div class="card postit" mv-multiple property="todo" mv-accepts="inProgress done">
+                        <div class="card editmode btn-transparent"><button type="button" class="btn mv-add-todo btn-link btn-transparent">+ New task</button></div>
+                        <div class="card sticky-note" mv-multiple property="todo" mv-accepts="inProgress done">
                             <div class="card-body">
                                 <h4 class="card-title" property="title"></h4>
                                 <p class="card-text" property="text"></p>
@@ -110,10 +124,10 @@
             </div>
 
             <div class="col-lg-4 inProgress">
-                <h1 class="big text-center">In progress:</h1>
+                <h1 class="big-title text-center">In progress:</h1>
                 <div class="container">
                     <div class="card-columns">
-                        <div class="card postit" mv-multiple property="inProgress" mv-accepts="done todo">
+                        <div class="card sticky-note" mv-multiple property="inProgress" mv-accepts="done todo">
                             <div class="card-body">
                                 <h4 class="card-title" property="title"></h4>
                                 <p class="card-text" property="text"></p>
@@ -125,10 +139,10 @@
             </div>
 
             <div class="col-lg-4 done">
-                <h1 class="big text-center">Done:</h1>
+                <h1 class="big-title text-center">Done:</h1>
                 <div class="container">
                     <div class="card-columns">
-                        <div class="card postit" mv-multiple property="done" mv-accepts="inProgress todo">
+                        <div class="card sticky-note" mv-multiple property="done" mv-accepts="inProgress todo">
                             <div class="card-body">
                                 <h4 class="card-title" property="title"></h4>
                                 <p class="card-text" property="text"></p>
@@ -138,7 +152,7 @@
                     <button class="mv-add-done invisible">New task</button>
                 </div>
             </div>
-        </div>
+       </div>
     </div>
 </div>
 </body>
